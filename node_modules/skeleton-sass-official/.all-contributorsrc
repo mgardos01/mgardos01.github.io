@@ -1,0 +1,100 @@
+{
+  "projectName": "skeleton-sass-official",
+  "projectOwner": "atomicpages",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "robertosobachi",
+      "name": "Roberto Sobachi",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1422326?v=4",
+      "profile": "http://robertosobachi.com",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "thomasvandongen",
+      "name": "Thomas van Dongen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/11245177?v=4",
+      "profile": "https://github.com/thomasvandongen",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "seshaljain",
+      "name": "Seshal Jain",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/11702800?v=4",
+      "profile": "https://github.com/seshaljain",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "pcbulai",
+      "name": "Paul Bulai",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/949571?v=4",
+      "profile": "https://github.com/pcbulai",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "dirkolbrich",
+      "name": "Dirk Olbrich",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3765119?v=4",
+      "profile": "http://www.dirkolbrich.de",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "brysonreece",
+      "name": "Bryson Reece",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/4043157?v=4",
+      "profile": "https://bryson.cc/",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "e-compton",
+      "name": "Edward Compton",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/11599729?v=4",
+      "profile": "https://github.com/e-compton",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "if2527",
+      "name": "if2527",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/18335580?v=4",
+      "profile": "https://github.com/if2527",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "k-snow",
+      "name": "k-snow",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/11395605?v=4",
+      "profile": "https://github.com/k-snow",
+      "contributions": [
+        "bug"
+      ]
+    }
+  ],
+  "contributorsPerLine": 6
+}
