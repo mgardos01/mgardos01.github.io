@@ -1,5 +1,5 @@
 +++
-title = "My Blog"
-template = "post.html"
+title = "blog"
 transparent = true
+redirect_to = "/"
 +++

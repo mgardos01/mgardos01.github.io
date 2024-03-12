@@ -16,10 +16,10 @@
     <div class="menu-title">{{ config.title }}</div>
     <nav>
         <ul>
-            <li {% if section.title == "blog" %} class="selected" {% endif %}><a href="{{ config.base_url | urlencode}}">Blog</a></li>
-            <li {% if section.title == "projects" %} class="selected" {% endif %}><a href="projects">Projects</a></li>
-            <li {% if section.title == "guides" %} class="selected" {% endif %}><a href="guides">Guides</a></li>
-            <li {% if section.title == "about" %} class="selected" {% endif %}><a href="about">About</a></li>
+            <li {% if section.title == "blog" %} class="selected" {% endif %}><a href="{{ config.base_url }}">Blog</a></li>
+            <li {% if section.title == "projects" %} class="selected" {% endif %}><a href="/pages/projects">Projects</a></li>
+            <li {% if section.title == "guides" %} class="selected" {% endif %}><a href="/pages/guides">Guides</a></li>
+            <li {% if section.title == "about" %} class="selected" {% endif %}><a href="/pages/about">About</a></li>
         </ul>
     </nav>
     <div class="soc-icons">
@@ -33,61 +33,62 @@
 {% endblock header %}
 
 {% block content %}
-<div class="home">
-    <div class="post-list">
-        {% for post in paginator.pages %}
-        <article class="post">
-            <header class="post-header">
-                <h1 class="post-title">
-                    <a href="{{ post.permalink }}">
-                        {% if post.title %}
-                            {{ post.title }}
-                        {% else %}
-                            Oops, this post doesn't have a title!
-                        {% endif %}
-                    </a>
-                </h1>
-                <p class="post-meta">
-                    <time>
-                        {% if post.date %}
-                            {{ post.date | date(format="%b %-d, %Y") }}
-                        {% else %}
-                            Oops, this post doesn't have a date!
-                        {% endif %}
-                    </time>
-                    {% if post.extra.author %}
-                        <br>by {{ post.extra.author }}
-                    {% endif %}
-                </p>
-            </header>
+    <div class="home">       
+        <div class="post-list">
+            {% for post in paginator.pages %}
+                <article class="post">
+                    <header class="post-header">
+                        <h1 class="post-title">
+                            <a href="{{ post.permalink }}">
+                                {% if post.title %}
+                                    {{ post.title }}
+                                {% else %}
+                                    Oops, this post doesn't have a title!
+                                {% endif %}
+                            </a>
+                        </h1>
+                        <p class="post-meta">
+                            <time>
+                                {% if post.date %}
+                                    {{ post.date | date(format="%b %-d, %Y") }}
+                                {% else %}
+                                    Oops, this post doesn't have a date!
+                                {% endif %}
+                            </time>
+                            {% if post.extra.author %}
+                                <br>by {{ post.extra.author }}
+                            {% endif %}
+                        </p>
+                    </header>
 
-            <div class="post-content">
-                {% if post.description %}
-                    {{ post.description }}
-                {% else %}
-                    Oops, this post doesn't have a description!
-                {% endif %}
-                <p>
-                    <a class="post-link" href="{{ post.permalink }}">Continue reading →</a>
-                </p>
-            </div>
-        </article>
-        {% endfor %}
+                    <div class="post-content">
+                        {% if post.description %}
+                            {{ post.description }}
+                        {% else %}
+                            Oops, this post doesn't have a description!
+                        {% endif %}
+                        <p>
+                            <a class="post-link" href="{{ post.permalink }}">Continue reading →</a>
+                        </p>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+            {% if paginator.previous %}
+            <a href="{{ paginator.previous }}" class="previous">« Previous</a>
+            {% else %}
+            <span class="previous">« Previous</span>
+            {% endif %}
+            |
+            <span class="page_number ">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+            |
+            {% if paginator.next %}
+            <a href="{{ paginator.next }}" class="next">Next »</a>
+            {% else %}
+            <span class="next ">Next »</span>
+            {% endif %}
+        </div>
     </div>
-    <div class="pagination">
-        {% if paginator.previous %}
-          <a href="{{ paginator.previous }}" class="previous">« Previous</a>
-        {% else %}
-          <span class="previous">« Previous</span>
-        {% endif %}
-        |
-        <span class="page_number ">Page {{ paginator.current_index }} of {{ paginator.total_pages }}</span>
-        |
-        {% if paginator.next %}
-          <a href="{{ paginator.next }}" class="next">Next »</a>
-        {% else %}
-          <span class="next ">Next »</span>
-        {% endif %}
-      </div>
-</div>
 {% endblock content %}

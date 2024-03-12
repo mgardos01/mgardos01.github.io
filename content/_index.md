@@ -1,5 +1,4 @@
 +++
-title = "homepage"
-templage = "index.html"
+title = "blog"
 paginate_by = 1
 +++
