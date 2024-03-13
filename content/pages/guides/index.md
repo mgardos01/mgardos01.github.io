@@ -1,5 +1,5 @@
 +++
-title = "Guides"
+title = "guides"
 +++
 
 this is the *guides* page!

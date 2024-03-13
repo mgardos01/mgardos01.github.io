@@ -1,5 +1,5 @@
 +++
-title = "Projects"
+title = "projects"
 +++
 
 this is the *projects* page!
