@@ -35,17 +35,17 @@
                                         Oops, this post doesn't have a date!
                                         {% endif %}
                                     </time>
-                                    {% if post.extra.author %}
-                                    <br>by {{ post.extra.author }}
+                                    {% if post.author %}
+                                    <br>by {{ post.author }}
                                     {% endif %}
                                 </p>
                             </header>
 
                             <div class="post-content">
-                                {% if post.description %}
-                                {{ post.description }}
+                                {% if post.excerpt %}
+                                    {{ post.excerpt  }}
                                 {% else %}
-                                Oops, this post doesn't have a description!
+                                    Oops, this post doesn't have an excerpt !
                                 {% endif %}
                                 <p>
                                     <a class="post-link" href="{{ post.permalink }}">Continue reading →</a>

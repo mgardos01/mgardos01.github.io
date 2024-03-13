@@ -1,6 +1,8 @@
 # The URL the site will be built for
 base_url = "https://example.com"
-title = "test title"
+title = "A lil blog."
+description = "This is the site LOL"
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
@@ -14,3 +16,5 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+linkedin = "https://www.linkedin.com/in/max-gardos-8a1bb21a1/"
+github = "https://github.com/mgardos01"
