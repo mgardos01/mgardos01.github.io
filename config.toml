@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://example.com"
+base_url = "https://mgardos01.github.io/"
 title = "mgardos blog v2"
 description = "This is the site LOL"
 
@@ -10,7 +10,7 @@ compile_sass = true
 build_search_index = true
 
 generate_feed = true
-author = "Max Gardos" 
+author = "mgardos01" 
 
 [markdown]
 # Whether to do syntax highlighting
