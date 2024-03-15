@@ -1,6 +1,5 @@
 {
-  "devDependencies": {
-    "normalize-scss": "^7.0.1",
+  "dependencies": {
     "skeleton-sass-official": "^4.0.0"
   }
 }
