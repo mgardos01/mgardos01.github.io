@@ -1,0 +1,50 @@
+{% import "macros.html" as macros %}
+
+<!DOCTYPE html>
+<html lang=en>
+
+{{ macros::head() }}
+
+<body>
+    <div class="container">
+        <div class="two columns" id="menu-column">
+            {# If it's an orphan page [about,projects], that section is highlighted. Otherwise it's just the blog#}
+            {% if not section.ancestors | last %}
+                {{ macros::header(config=config, current_page=page.title) }}
+            {% else %} 
+                {{ macros::header(config=config) }}
+            {% endif %}
+        </div>
+
+        <div class="seven columns offset-by-one" id="content-column">
+            <div id="content">
+                <h1 class="post-title">
+                    {{ section.title }}
+                </h1>
+
+                
+
+                <ul>
+                    {# Group by the project "group" and sort them alphabetically #}
+                    {% set map = section.pages | group_by(attribute="extra.group") %}
+                    {% set groups = [] %}
+                    {% for group, ignored in map %}
+                        {% set_global groups = groups | concat(with=group) %}
+                    {% endfor %}
+
+                    {% for group in groups | sort %}
+                        <h4>{{group}}</h4>
+                        {% for page in map[group] %}
+                            <li>
+                                <a href="{{ page.permalink | safe }}">{{ page.title }}</a> | {{ page.date }}
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+
+                {{ section.content | safe }}
+                
+            </div>
+        </div>
+    </div>
+</body>

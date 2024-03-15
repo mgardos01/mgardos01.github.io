@@ -8,7 +8,7 @@
 <body>
     <div class="container">
         <div class="two columns" id="menu-column">
-            {# If it's an orphan page [about,guides,projects], that section is highlighted. Otherwise it's just the blog#}
+            {# If it's an orphan page [about,projects], that section is highlighted. Otherwise it's just the blog#}
             {% if not page.ancestors | last %}
                 {{ macros::header(config=config, current_page=page.title) }}
             {% else %} 
