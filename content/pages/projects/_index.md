@@ -3,7 +3,7 @@ title = "Projects"
 sort_by = "date"
 +++
 
-this is the *projects* section!
+#### This is the *projects* section!
 
 ```python
 a = 2
