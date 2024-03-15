@@ -25,21 +25,41 @@
                 
 
                 <ul>
-                    {# Group by the project "group" and sort them alphabetically #}
+                    {# Group by the project "group" and sort them alphabetically. #}
                     {% set map = section.pages | group_by(attribute="extra.group") %}
                     {% set groups = [] %}
                     {% for group, ignored in map %}
                         {% set_global groups = groups | concat(with=group) %}
                     {% endfor %}
-
-                    {% for group in groups | sort %}
-                        <h4>{{group}}</h4>
-                        {% for page in map[group] %}
+                    
+                    {% if not groups %} {# Just list the pages if there's no grouping. #}
+                        {% for page in section.pages %}
                             <li>
                                 <a href="{{ page.permalink | safe }}">{{ page.title }}</a> | {{ page.date }}
                             </li>
                         {% endfor %}
-                    {% endfor %}
+                    {% else %} {# Otherwise, list the pages by grouping. #}
+                        {% set seen_pages = [] %} {# Keep track of the grouped pages... #}
+                        {% for group in groups | sort %}
+                            <h4>{{group}}</h4>
+                            {% for page in map[group] %}
+                                {% set_global seen_pages = seen_pages | concat(with=page) %}
+                                <li>
+                                    <a href="{{ page.permalink | safe }}">{{ page.title }}</a> | {{ page.date }}
+                                </li>
+                            {% endfor %}
+                        {% endfor %}
+                        {# ...so we can list the ungrouped pages later. #}
+                        <h4>Ungrouped Projects</h4>
+                        {% for page in section.pages %}
+                            {% if seen_pages is not containing(page)%}
+                                <li>
+                                    <a href="{{ page.permalink | safe }}">{{ page.title }}</a> | {{ page.date }}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+    
                 </ul>
 
                 {{ section.content | safe }}
