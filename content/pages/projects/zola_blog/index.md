@@ -64,7 +64,7 @@ In the Jekyll project,
 In the Zola project, 
 - ```default.html``` serves as the base template
 - it slots in  ```macro::head()``` for metadata and  ```macro::header()``` for the navbar
-- ```{{ content }}``` is slotted with the paginated list of blogposts from ```index.html``` or a single page of content from ```{page, section}.html```. ```section.html``` is only for the project listing - more on that later.   
+- ```{%block content%}{% endblock %}``` is slotted with the paginated list of blogposts from ```index.html``` or a single page of content from ```{page, section}.html```. ```section.html``` is only for the project listing - more on that later.   
 
 ## Sass 
 Jekyll: 
