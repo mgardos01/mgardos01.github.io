@@ -9,7 +9,7 @@ This is the site you're browsing right now - it's a basic port of the Comittee o
 
 Comittee of Zero is a visual novel port/patch/translation team that works on 5pb./MAGES.’s Science Adventure (SciADV) series of games (most notably STEINS;GATE), and their blog has a no-frills layout that's [simple and clean](https://www.youtube.com/watch?v=B1nDzB1P8GM)... and open source! For future reference, you can find the Comittee of Zero repo at <https://github.com/CommitteeOfZero/committeeofzero.github.io> and the repo for this site at <https://github.com/mgardos01/mgardos01.github.io>. 
 
-I saw that they used Jekyll to build their blog, and figured that adapting their clean site layout from scratch would be a good way to learn some trendy flavor of SSG that I'd read about in some hackernews discussion. 
+I saw that they used Jekyll to build their blog, and figured that adapting their clean site layout from scratch would be a good way to learn a random trendy(?) SSG that I'd read about in some hackernews discussion. 
 
 ## Why Zola? 
 - Super fast builds (the main selling point)
