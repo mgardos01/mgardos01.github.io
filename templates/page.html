@@ -1,29 +1,9 @@
-{% import "macros.html" as macros %}
+{% extends "default.html" %}
 
-<!DOCTYPE html>
-<html lang=en>
-
-{{ macros::head() }}
-
-<body>
-    <div class="container">
-        <div class="two columns" id="menu-column">
-            {# If it's an orphan page [about,projects], that section is highlighted. Otherwise it's just the blog#}
-            {% if not page.ancestors | last %}
-                {{ macros::header(config=config, current_page=page.title) }}
-            {% else %} 
-                {{ macros::header(config=config) }}
-            {% endif %}
-        </div>
-
-        <div class="seven columns offset-by-one" id="content-column">
-            <div id="content">
-                <h1 class="post-title">
-                    {{ page.title }}
-                </h1>
-                <p class="subtitle"><strong>{{ page.date }}</strong></p>
-                {{ page.content | safe }}
-            </div>
-        </div>
-    </div>
-</body>
+{% block content %}
+<h1 class="post-title">
+    {{ page.title }}
+</h1>
+<p class="subtitle"><strong>{{ page.date }}</strong></p>
+{{ page.content | safe }}
+{% endblock content %}

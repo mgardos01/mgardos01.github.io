@@ -1,70 +1,47 @@
-{% import "macros.html" as macros %}
+{% extends "default.html" %}
 
-<!DOCTYPE html>
-<html lang=en>
+{% block content %}
+<h1 class="post-title">
+    {{ section.title }}
+</h1>
 
-{{ macros::head() }}
-
-<body>
-    <div class="container">
-        <div class="two columns" id="menu-column">
-            {# If it's an orphan page [about,projects], that section is highlighted. Otherwise it's just the blog#}
-            {% if not section.ancestors | last %}
-                {{ macros::header(config=config, current_page=page.title) }}
-            {% else %} 
-                {{ macros::header(config=config) }}
-            {% endif %}
-        </div>
-
-        <div class="seven columns offset-by-one" id="content-column">
-            <div id="content">
-                <h1 class="post-title">
-                    {{ section.title }}
-                </h1>
-
-                
-
-                <ul>
-                    {# Group by the project "group" and sort them alphabetically. #}
-                    {% set map = section.pages | group_by(attribute="extra.group") %}
-                    {% set groups = [] %}
-                    {% for group, ignored in map %}
-                        {% set_global groups = groups | concat(with=group) %}
-                    {% endfor %}
-                    
-                    {% if not groups %} {# Just list the pages if there's no grouping. #}
-                        {% for page in section.pages %}
-                            <li>
-                                <a href="{{ page.permalink | safe }}">{{ page.title }}</a> | {{ page.date }}
-                            </li>
-                        {% endfor %}
-                    {% else %} {# Otherwise, list the pages by grouping. #}
-                        {% set seen_pages = [] %} {# Keep track of the grouped pages... #}
-                        {% for group in groups | sort %}
-                            <h4>{{group}}</h4>
-                            {% for page in map[group] %}
-                                {% set_global seen_pages = seen_pages | concat(with=page) %}
-                                <li>
-                                    <a href="{{ page.permalink | safe }}">{{ page.title }}</a> | {{ page.date }}
-                                </li>
-                            {% endfor %}
-                        {% endfor %}
-                        {# ...so we can list the ungrouped pages later. #}
-                        <h4>Ungrouped Projects</h4>
-                        {% for page in section.pages %}
-                            {% if seen_pages is not containing(page)%}
-                                <li>
-                                    <a href="{{ page.permalink | safe }}">{{ page.title }}</a> | {{ page.date }}
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
+<ul>
+    {# Group by the project "group" and sort them alphabetically. #}
+    {% set map = section.pages | group_by(attribute="extra.group") %}
+    {% set groups = [] %}
+    {% for group, ignored in map %}
+        {% set_global groups = groups | concat(with=group) %}
+    {% endfor %}
     
-                </ul>
+    {% if not groups %} {# Just list the pages if there's no grouping. #}
+        {% for page in section.pages %}
+            <li>
+                <a href="{{ page.permalink | safe }}">{{ page.title }}</a> | {{ page.date }}
+            </li>
+        {% endfor %}
+    {% else %} {# Otherwise, list the pages by grouping. #}
+        {% set seen_pages = [] %} {# Keep track of the grouped pages... #}
+        {% for group in groups | sort %}
+            <h4>{{group}}</h4>
+            {% for page in map[group] %}
+                {% set_global seen_pages = seen_pages | concat(with=page) %}
+                <li>
+                    <a href="{{ page.permalink | safe }}">{{ page.title }}</a> | {{ page.date }}
+                </li>
+            {% endfor %}
+        {% endfor %}
+        {# ...so we can list the ungrouped pages later. #}
+        <h4>Ungrouped Projects</h4>
+        {% for page in section.pages %}
+            {% if seen_pages is not containing(page)%}
+                <li>
+                    <a href="{{ page.permalink | safe }}">{{ page.title }}</a> | {{ page.date }}
+                </li>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
 
-                {{ section.content | safe }}
-                
-            </div>
-        </div>
-    </div>
-</body>
+</ul>
+
+{{ section.content | safe }}
+{% endblock content %}

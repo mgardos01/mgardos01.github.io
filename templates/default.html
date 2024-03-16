@@ -1,0 +1,27 @@
+{% import "macros.html" as macros %}
+
+<!DOCTYPE html>
+<html lang=en>
+
+{{ macros::head() }}
+
+<body>
+    <div class="container">
+        <div class="two columns" id="menu-column">
+            {% if page %}
+                {% set active_tab = get_section(path = page.ancestors | last) | get(key="title") %}
+            {% else %}
+                {% set active_tab = section.title %}
+            {% endif %}
+            {{ macros::header(config=config, active_tab=active_tab) }}
+        </div>
+
+        <div class="seven columns offset-by-one" id="content-column">
+            <div id="content">
+              {% block content %}{% endblock %}
+            </div>
+        </div>
+
+    </div>
+</body>
+

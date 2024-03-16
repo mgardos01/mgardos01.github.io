@@ -1,9 +1,11 @@
 {% if absolute_path %}
-{% set img_path = fullsize_img %}
+    {% set img_path = fullsize_img %}
 {% else %}
-{% set img_path = page.colocated_path ~ fullsize_img %}
+    {% set img_path = page.colocated_path ~ fullsize_img %}
 {% endif %}
+
 {% set caption = caption | default(value='Oops, no caption! Hehehe') %}
+
 {% set thumb_image = resize_image(path=img_path, width=540, height=540, op="fill") %}
 
 <div class="thumb">    
