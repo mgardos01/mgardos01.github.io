@@ -42,10 +42,10 @@
                             </header>
 
                             <div class="post-content">
-                                {% if post.excerpt %}
-                                    {{ post.excerpt  }}
+                                {% if post.extra.excerpt %}
+                                    <p> {{ post.extra.excerpt }} </p>
                                 {% else %}
-                                    Oops, this post doesn't have an excerpt !
+                                    <p> Oops, this post doesn't have an excerpt ! </p>
                                 {% endif %}
                                 <p>
                                     <a class="post-link" href="{{ post.permalink }}">Continue reading →</a>
