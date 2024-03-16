@@ -138,18 +138,18 @@ See [this](https://www.getzola.org/documentation/content/overview/) for more det
 ## What's Different 
 
 ### No "active_tab" variable in frontmatter
-Every rendered website checks whether or not it's a "page" or a "section" before rendering the navbar. If it's a ```page```, it sets the ```active_tab``` equal to the title of its parent section. If it's a ```section```, it sets the ```active_tab``` equal to its title. The 
+Every rendered website checks whether or not it's a "page" or a "section" before rendering the navbar. If it's a ```page```, it sets the ```active_tab``` equal to the title of its parent section. If it's a ```section```, it sets the ```active_tab``` equal to its title.  
 ```c
 {% import "macros.html" as macros %}
 ...
-    <div class="two columns" id="menu-column">
-        {% if page %}
-            {% set active_tab = get_section(path = page.ancestors | last) | get(key="title") %}
-        {% else %}
-            {% set active_tab = section.title %}
-        {% endif %}
-        {{ macros::header(config=config, active_tab=active_tab) }}
-    </div>
+<div class="two columns" id="menu-column">
+{% if page %}
+    {% set active_tab = get_section(path = page.ancestors | last) | get(key="title") %}
+{% else %}
+    {% set active_tab = section.title %}
+{% endif %}
+{{ macros::header(config=config, active_tab=active_tab) }}
+</div>
 ...
 ```
 
