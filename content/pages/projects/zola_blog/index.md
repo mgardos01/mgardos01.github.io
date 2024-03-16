@@ -2,7 +2,7 @@
 title = "Comittee of Zola (Jekyll -> Zola SSG conversion)"
 date = 2024-03-15
 [extra]
-group = ""
+# group = ""
 +++
 
 This is the site you're browsing right now - it's a basic port of the Comittee of Zero website <https://sonome.dareno.me/> from [Jekyll](https://jekyllrb.com/) to [Zola](https://www.getzola.org/). In this post I'll briefly go over how I chose to adapt their Jekyll blog format to Zola. 
