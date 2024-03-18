@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang=en>
+
+
+<head prefix="og: http://ogp.me/ns# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://mgardos01.github.io/skeleton.css">
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="two columns" id="menu-column">
+            
+                
+            
+            
+    <div class="site-logo">
+        <a href="https:&#x2F;&#x2F;mgardos01.github.io&#x2F;"><img src="https://mgardos01.github.io/assets/logo.png"></a>
+    </div>
+    <div class="menu-title">mgardos blog v2</div>
+    <nav>
+        <ul>
+            <li >
+                <a href="https:&#x2F;&#x2F;mgardos01.github.io&#x2F;">Blog</a>
+            </li>
+            <li  class="selected" >
+                <a href="/pages/projects">Projects</a>
+            </li>
+            <li >
+                <a href="/pages/about">About</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="soc-icons">
+
+        <a href="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;max-gardos-8a1bb21a1&#x2F;">
+            <img src="https://mgardos01.github.io/assets/soc-icon-linkedin.svg">
+        </a>
+
+        <a href="https:&#x2F;&#x2F;github.com&#x2F;mgardos01">
+            <img src="https://mgardos01.github.io/assets/soc-icon-gh.svg">
+        </a>
+
+        <a href="mgardos01@gmail.com">
+            <img src="https://mgardos01.github.io/assets/icon-mail.svg">
+        </a>
+    </div>
+
+        </div>
+
+        <div class="seven columns offset-by-one" id="content-column">
+            <div id="content">
+              
+<h1 class="post-title">
+    Comittee of Zola (Jekyll -&gt; Zola SSG conversion)
+</h1>
+<p class="subtitle"><strong>2024-03-15</strong></p>
+
+    
+        <ul>
+        
+            <li>
+                <a href="https://mgardos01.github.io/pages/projects/zola-blog/#why-zola">Why Zola?</a>
+                
+            </li>
+        
+            <li>
+                <a href="https://mgardos01.github.io/pages/projects/zola-blog/#project-structure">Project Structure</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://mgardos01.github.io/pages/projects/zola-blog/#html-templates">HTML Templates</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://mgardos01.github.io/pages/projects/zola-blog/#sass">Sass</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://mgardos01.github.io/pages/projects/zola-blog/#assets">Assets</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://mgardos01.github.io/pages/projects/zola-blog/#posts">Posts</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+            <li>
+                <a href="https://mgardos01.github.io/pages/projects/zola-blog/#what-s-different">What's Different</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://mgardos01.github.io/pages/projects/zola-blog/#no-active-tab-variable-in-frontmatter">No "active_tab" variable in frontmatter</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+        </ul>
+    
+
+<p>This is the site you're browsing right now - it's a basic port of the Comittee of Zero website <a href="https://sonome.dareno.me/">https://sonome.dareno.me/</a> from <a href="https://jekyllrb.com/">Jekyll</a> to <a href="https://www.getzola.org/">Zola</a>. In this post I'll briefly go over how I chose to adapt their Jekyll blog format to Zola. </p>
+<p>Comittee of Zero is a visual novel port/patch/translation team that works on 5pb./MAGES.’s Science Adventure (SciADV) series of games (most notably STEINS;GATE), and their blog has a no-frills layout that's <a href="https://www.youtube.com/watch?v=B1nDzB1P8GM">simple and clean</a>... and open source! For future reference, you can find the Comittee of Zero repo at <a href="https://github.com/CommitteeOfZero/committeeofzero.github.io">https://github.com/CommitteeOfZero/committeeofzero.github.io</a> and the repo for this site at <a href="https://github.com/mgardos01/mgardos01.github.io">https://github.com/mgardos01/mgardos01.github.io</a>. </p>
+<p>I saw that they used Jekyll to build their blog, and figured that adapting their clean site layout from scratch would be a good way to learn a random trendy(?) SSG that I'd read about in some hackernews discussion. </p>
+<h1 id="why-zola"><a class="zola-anchor" href="#why-zola" aria-label="Anchor link for: why-zola">Why Zola?</a></h1>
+<ul>
+<li>Super fast builds (the main selling point)</li>
+<li>Single binary </li>
+<li>Templating language (Tera) is super similar to Jekyll's Liquid templates</li>
+<li>RSS feed support out of the box</li>
+<li>I tried Hugo first and came across some syntax that was so much uglier than anything in Jekyll so I immediately nope'd out and chose the second one I remembered </li>
+</ul>
+<p>The <a href="https://www.getzola.org/documentation/getting-started/overview/#first-steps-with-zola">quick overview</a> in the Zola docs was also super easy to follow. </p>
+<!-- Quick disclaimer: I gutted most of the metadata out of the original files -->
+<h1 id="project-structure"><a class="zola-anchor" href="#project-structure" aria-label="Anchor link for: project-structure">Project Structure</a></h1>
+<p>I'll go over how I translated the structure of the Jekyll project over first before going over any substantial changes I made to the layout logic.</p>
+<h2 id="html-templates"><a class="zola-anchor" href="#html-templates" aria-label="Anchor link for: html-templates">HTML Templates</a></h2>
+<p>Jekyll: </p>
+<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#50fa7b;">───</span><span> index.html
+</span><span style="color:#50fa7b;">_includes/
+</span><span style="color:#50fa7b;">├──</span><span> head.html
+</span><span style="color:#50fa7b;">├──</span><span> header.html
+</span><span style="color:#50fa7b;">└──</span><span> thumb.html
+</span><span style="color:#50fa7b;">_layouts/
+</span><span style="color:#50fa7b;">├──</span><span> default.html
+</span><span style="color:#50fa7b;">└──</span><span> page.html
+</span></code></pre>
+<p>Zola: </p>
+<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#50fa7b;">templates/
+</span><span style="color:#50fa7b;">├──</span><span> default.html
+</span><span style="color:#50fa7b;">├──</span><span> index.html
+</span><span style="color:#50fa7b;">├──</span><span> macros.html </span><span style="color:#ff79c6;">&lt;</span><span> macro::{head, header}
+</span><span style="color:#50fa7b;">├──</span><span> page.html
+</span><span style="color:#50fa7b;">├──</span><span> section.html
+</span><span style="color:#50fa7b;">└──</span><span> shortcodes
+</span><span>    </span><span style="color:#50fa7b;">└──</span><span> thumb.html
+</span></code></pre>
+<p>In Jekyll, the <code>_layouts</code> directory contains the templates that wrap markdown content, which is slotted in with a <code>{{ content }}</code> tag. The <code>_includes</code> directory contains partial HTML components that can be mixed and matched by your layouts and included in markdown files. </p>
+<p>In Zola, every template lives in the <code>templates</code> directory. Partials that are meant to be included in other templates like <code>head</code> and <code>header</code> elements are recommended to be written as Tera macros which are imported and namespaced. Partials that are meant to be included primarily in markdown files are recommended to be written as shortcodes and placed in the <code>shortcodes</code> directory (which exposes their use to every markdown file automatically without the need to add an import statement). </p>
+<p>In the Jekyll project, </p>
+<ul>
+<li><code>default.html</code> serves as the base template</li>
+<li>it slots in  <code>head.html</code> for metadata and  <code>header.html</code> for the navbar</li>
+<li><code>{{ content }}</code> is slotted with the paginated list of blogposts from <code>index.html</code> or a single page of content from <code>page.html</code>. </li>
+</ul>
+<p>In the Zola project, </p>
+<ul>
+<li><code>default.html</code> serves as the base template</li>
+<li>it slots in  <code>macro::head()</code> for metadata and  <code>macro::header()</code> for the navbar</li>
+<li><code>{%block content%}{% endblock %}</code> is slotted with the paginated list of blogposts from <code>index.html</code> or a single page of content from <code>{page, section}.html</code>. <code>section.html</code> is only for the project listing - more on that later.</li>
+</ul>
+<h2 id="sass"><a class="zola-anchor" href="#sass" aria-label="Anchor link for: sass">Sass</a></h2>
+<p>Jekyll: </p>
+<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#50fa7b;">_sass/
+</span><span style="color:#50fa7b;">├──</span><span> skeleton
+</span><span style="color:#50fa7b;">│</span><span>   ├── _loader.scss
+</span><span style="color:#50fa7b;">│</span><span>   └── _vars.scss
+</span><span style="color:#50fa7b;">└──</span><span> vendor
+</span><span>    </span><span style="color:#50fa7b;">├──</span><span> normalize-scss </span><span style="color:#ff79c6;">&lt;</span><span> git submodule
+</span><span>    </span><span style="color:#50fa7b;">└──</span><span> skeleton-sass </span><span style="color:#ff79c6;">&lt;</span><span> git submodule
+</span><span style="color:#50fa7b;">_assets/
+</span><span style="color:#50fa7b;">└──</span><span> main.scss
+</span></code></pre>
+<p>Zola: </p>
+<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#50fa7b;">node_modules/
+</span><span style="color:#50fa7b;">├──</span><span> normalize-scss
+</span><span style="color:#50fa7b;">└──</span><span> skeleton-sass-official
+</span><span style="color:#50fa7b;">sass/
+</span><span style="color:#50fa7b;">├──</span><span> _config.scss
+</span><span style="color:#50fa7b;">├──</span><span> _loader.scss
+</span><span style="color:#50fa7b;">├──</span><span> _vars.scss
+</span><span style="color:#50fa7b;">└──</span><span> skeleton.scss
+</span></code></pre>
+<p>In Jekyll, the <code>_sass</code> directory only contains sass partials which are imported by <code>main.scss</code> from the <code>assets</code> directory. </p>
+<p>Zola processes any files with the <code>sass</code> or <code>scss</code> extension in the <code>sass</code> directory and places the processed output into a <code>css</code> file with the same directory structure and base name into the <code>public</code> directory - the root of a built Zola project. </p>
+<h2 id="assets"><a class="zola-anchor" href="#assets" aria-label="Anchor link for: assets">Assets</a></h2>
+<p>I didn't sweat this one too much - all the image uploads in the original project lived in an  <code>uploads</code> directory and static assets (logos, svgs, etc.) in an <code>assets</code> directory. </p>
+<p>Zola comes with something they call &quot;Asset colocation&quot; - All non-Markdown files you add in a page directory are copied alongside the generated page when the site is built, which allows a relative path to be used access them, so I eschewed the <code>uploads</code> directory altogether, anticipating that I won't be reusing images in multiple blog posts too often. If I did want to, Zola's <code>static</code> directory is intended for any kind of static file - all the files/directories in this directory are be copied as-is to the output directory on build, so something like <code>static/uploads</code> would work (I use <code>static/assets</code> to hold the icons present on the navbar)</p>
+<h2 id="posts"><a class="zola-anchor" href="#posts" aria-label="Anchor link for: posts">Posts</a></h2>
+<p>I didn't look at the way posts were routed/organized in Jekyll before this but I might as well include it. I'm using <code>+++</code> to denote information that's found in the front-matter (like the header) of each markdown file. </p>
+<p>Jekyll</p>
+<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#50fa7b;">───</span><span> about.md
+</span><span style="color:#50fa7b;">───</span><span> projects.md
+</span><span style="color:#50fa7b;">_posts/
+</span><span style="color:#50fa7b;">├──</span><span> example-blogpost-name.md
+</span><span style="color:#50fa7b;">└──</span><span> example-blogpost-but-this-is-also-a-project.md +++ permalink=project/somethingsomething
+</span><span style="color:#50fa7b;">projects/
+</span><span style="color:#50fa7b;">└──</span><span> example-project-name.md +++ permalink=project/something
+</span></code></pre>
+<p>Zola</p>
+<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#50fa7b;">content/
+</span><span style="color:#50fa7b;">├──</span><span> blog/
+</span><span style="color:#50fa7b;">│</span><span>   ├── example-blogpost-name/
+</span><span style="color:#50fa7b;">│</span><span>   │   └── index.md
+</span><span style="color:#50fa7b;">│</span><span>   └── _index.md +++ transparent=true
+</span><span style="color:#50fa7b;">├──</span><span> pages/
+</span><span style="color:#50fa7b;">│</span><span>   ├── about/
+</span><span style="color:#50fa7b;">│</span><span>   │   └── _index.md
+</span><span style="color:#50fa7b;">│</span><span>   └── projects/
+</span><span style="color:#50fa7b;">│</span><span>       ├── example-project-name/
+</span><span style="color:#50fa7b;">│</span><span>       │   └── index.md
+</span><span style="color:#50fa7b;">│</span><span>       └── _index.md
+</span><span style="color:#50fa7b;">└──</span><span> _index.md +++ paginate_by=5
+</span></code></pre>
+<p>Without going into much detail, Zola has &quot;pages&quot; and &quot;sections&quot; organized in the <code>content</code> directory. Directories with a <code>_index.md</code> file are sections, and directories with a <code>index.md</code> file are pages. Sections can paginate the pages that are under them automatically, and can paginate the pages that are under their subsections if the subsection is &quot;transparent&quot;. You can paginate posts on the homepage by putting every post in its own transparent section, which I named <code>blog</code>, and every other page in an opaque section I named <code>pages</code>.</p>
+<p>See <a href="https://www.getzola.org/documentation/content/overview/">this</a> for more details about section routing.</p>
+<h1 id="what-s-different"><a class="zola-anchor" href="#what-s-different" aria-label="Anchor link for: what-s-different">What's Different</a></h1>
+<h2 id="no-active-tab-variable-in-frontmatter"><a class="zola-anchor" href="#no-active-tab-variable-in-frontmatter" aria-label="Anchor link for: no-active-tab-variable-in-frontmatter">No &quot;active_tab&quot; variable in frontmatter</a></h2>
+<p>Every rendered website checks whether or not it's a &quot;page&quot; or a &quot;section&quot; before rendering the navbar. If it's a <code>page</code>, it sets the <code>active_tab</code> equal to the title of its parent section. If it's a <code>section</code>, it sets the <code>active_tab</code> equal to its title.</p>
+<pre data-lang="c" style="background-color:#282a36;color:#f8f8f2;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#ffffff;">{</span><span style="color:#ff79c6;">%</span><span> import </span><span style="color:#f1fa8c;">&quot;macros.html&quot;</span><span> as macros </span><span style="color:#ff79c6;">%</span><span style="color:#ffffff;">}
+</span><span style="color:#ff79c6;">...
+</span><span style="color:#ff79c6;">&lt;</span><span>div class</span><span style="color:#ff79c6;">=</span><span style="color:#f1fa8c;">&quot;two columns&quot;</span><span> id</span><span style="color:#ff79c6;">=</span><span style="color:#f1fa8c;">&quot;menu-column&quot;</span><span style="color:#ff79c6;">&gt;
+</span><span style="color:#ffffff;">{</span><span style="color:#ff79c6;">% if</span><span> page </span><span style="color:#ff79c6;">%</span><span style="color:#ffffff;">}
+</span><span>    </span><span style="color:#ffffff;">{</span><span style="color:#ff79c6;">%</span><span> set active_tab </span><span style="color:#ff79c6;">= </span><span style="color:#50fa7b;">get_section</span><span>(path </span><span style="color:#ff79c6;">=</span><span> page</span><span style="color:#ff79c6;">.</span><span style="color:#ffffff;">ancestors </span><span style="color:#ff79c6;">|</span><span> last) </span><span style="color:#ff79c6;">| </span><span style="color:#50fa7b;">get</span><span>(key</span><span style="color:#ff79c6;">=</span><span style="color:#f1fa8c;">&quot;title&quot;</span><span>) </span><span style="color:#ff79c6;">%</span><span style="color:#ffffff;">}
+</span><span style="color:#ffffff;">{</span><span style="color:#ff79c6;">% else %</span><span style="color:#ffffff;">}
+</span><span>    </span><span style="color:#ffffff;">{</span><span style="color:#ff79c6;">%</span><span> set active_tab </span><span style="color:#ff79c6;">=</span><span> section</span><span style="color:#ff79c6;">.</span><span style="color:#ffffff;">title </span><span style="color:#ff79c6;">%</span><span style="color:#ffffff;">}
+</span><span style="color:#ffffff;">{</span><span style="color:#ff79c6;">%</span><span> endif </span><span style="color:#ff79c6;">%</span><span style="color:#ffffff;">}
+</span><span style="color:#ffffff;">{{</span><span> macros:</span><span style="color:#ff79c6;">:</span><span style="color:#50fa7b;">header</span><span>(config</span><span style="color:#ff79c6;">=</span><span>config, active_tab</span><span style="color:#ff79c6;">=</span><span>active_tab) </span><span style="color:#ffffff;">}}
+</span><span style="color:#ff79c6;">&lt;/</span><span>div</span><span style="color:#ff79c6;">&gt;
+</span><span style="color:#ff79c6;">...
+</span></code></pre>
+<p>And some other stuff too I'm so tired I'll update this post later ok you get the gist I guess!</p>
+
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
