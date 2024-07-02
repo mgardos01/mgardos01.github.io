@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://mgardos01.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://mgardos01.github.io/blog/</loc>
+    </url>
+    <url>
+        <loc>https://mgardos01.github.io/blog/intro-post/</loc>
+        <lastmod>2024-03-15</lastmod>
+    </url>
+    <url>
+        <loc>https://mgardos01.github.io/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://mgardos01.github.io/pages/about/</loc>
+    </url>
+    <url>
+        <loc>https://mgardos01.github.io/pages/projects/</loc>
+    </url>
+    <url>
+        <loc>https://mgardos01.github.io/pages/projects/zola-blog/</loc>
+        <lastmod>2024-03-15</lastmod>
+    </url>
+</urlset>

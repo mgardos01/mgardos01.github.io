@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>mgardos blog v2</title>
+    <subtitle>This is the site LOL</subtitle>
+    <link href="https://mgardos01.github.io/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://mgardos01.github.io/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-03-15T00:00:00+00:00</updated>
+    <id>https://mgardos01.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Introductory Blogpost</title>
+        <published>2024-03-15T00:00:00+00:00</published>
+        <updated>2024-03-15T00:00:00+00:00</updated>
+        <author>
+          <name>mgardos01</name>
+        </author>
+        <link rel="alternate" href="https://mgardos01.github.io/blog/intro-post/" type="text/html"/>
+        <id>https://mgardos01.github.io/blog/intro-post/</id>
+        
+        <content type="html">
+    
+
+
+
+
+
+
+&lt;div class=&quot;thumb&quot;&gt;    
+    &lt;a href=&quot;https:&#x2F;&#x2F;mgardos01.github.io&#x2F;blog&#x2F;intro-post&#x2F;real_blog_this_time.png&quot;&gt;
+        &lt;figure&gt;
+            &lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;mgardos01.github.io&amp;#x2F;processed_images&amp;#x2F;real_blog_this_time.ca3fef74f234e3b5.png&quot; alt=&quot;Finally, life!&quot;&#x2F;&gt;
+            &lt;figcaption&gt;
+                Finally, life!
+            &lt;&#x2F;figcaption&gt;
+        &lt;&#x2F;figure&gt;
+    &lt;&#x2F;a&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;I finally got around to making an actual site to host my portfolio and other bloggy-whatever things I wanted to post online that isn&#x27;t just a splash page with my GitHub and LinkedIn on it!&lt;&#x2F;p&gt;
+&lt;p&gt;In the near future, expect some blog posts about my existing projects under the &amp;quot;&lt;a href=&quot;https:&#x2F;&#x2F;mgardos01.github.io&#x2F;pages&#x2F;projects&#x2F;&quot;&gt;Projects&lt;&#x2F;a&gt;&amp;quot; page and random thoughts&#x2F;updates&#x2F;whateva under &amp;quot;&lt;a href=&quot;https:&#x2F;&#x2F;mgardos01.github.io&#x2F;&quot;&gt;Blog&lt;&#x2F;a&gt;&amp;quot; page.  If you&#x27;re curious about how I spun this site up, &lt;a href=&quot;https:&#x2F;&#x2F;mgardos01.github.io&#x2F;pages&#x2F;projects&#x2F;zola-blog&#x2F;&quot;&gt;check out the first project post right here!&lt;&#x2F;a&gt;. &lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Comittee of Zola (Jekyll -&gt; Zola SSG conversion)</title>
+        <published>2024-03-15T00:00:00+00:00</published>
+        <updated>2024-03-15T00:00:00+00:00</updated>
+        <author>
+          <name>mgardos01</name>
+        </author>
+        <link rel="alternate" href="https://mgardos01.github.io/pages/projects/zola-blog/" type="text/html"/>
+        <id>https://mgardos01.github.io/pages/projects/zola-blog/</id>
+        
+        <content type="html">&lt;!-- toc --&gt;
+&lt;p&gt;This is the site you&#x27;re browsing right now - it&#x27;s a basic port of the Comittee of Zero website &lt;a href=&quot;https:&#x2F;&#x2F;sonome.dareno.me&#x2F;&quot;&gt;https:&#x2F;&#x2F;sonome.dareno.me&#x2F;&lt;&#x2F;a&gt; from &lt;a href=&quot;https:&#x2F;&#x2F;jekyllrb.com&#x2F;&quot;&gt;Jekyll&lt;&#x2F;a&gt; to &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;&quot;&gt;Zola&lt;&#x2F;a&gt;. In this post I&#x27;ll briefly go over how I chose to adapt their Jekyll blog format to Zola. &lt;&#x2F;p&gt;
+&lt;p&gt;Comittee of Zero is a visual novel port&#x2F;patch&#x2F;translation team that works on 5pb.&#x2F;MAGES.’s Science Adventure (SciADV) series of games (most notably STEINS;GATE), and their blog has a no-frills layout that&#x27;s &lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=B1nDzB1P8GM&quot;&gt;simple and clean&lt;&#x2F;a&gt;... and open source! For future reference, you can find the Comittee of Zero repo at &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;CommitteeOfZero&#x2F;committeeofzero.github.io&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;CommitteeOfZero&#x2F;committeeofzero.github.io&lt;&#x2F;a&gt; and the repo for this site at &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mgardos01&#x2F;mgardos01.github.io&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;mgardos01&#x2F;mgardos01.github.io&lt;&#x2F;a&gt;. &lt;&#x2F;p&gt;
+&lt;p&gt;I saw that they used Jekyll to build their blog, and figured that adapting their clean site layout from scratch would be a good way to learn a random trendy(?) SSG that I&#x27;d read about in some hackernews discussion. &lt;&#x2F;p&gt;
+&lt;h1 id=&quot;why-zola&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#why-zola&quot; aria-label=&quot;Anchor link for: why-zola&quot;&gt;Why Zola?&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Super fast builds (the main selling point)&lt;&#x2F;li&gt;
+&lt;li&gt;Single binary &lt;&#x2F;li&gt;
+&lt;li&gt;Templating language (Tera) is super similar to Jekyll&#x27;s Liquid templates&lt;&#x2F;li&gt;
+&lt;li&gt;RSS feed support out of the box&lt;&#x2F;li&gt;
+&lt;li&gt;I tried Hugo first and came across some syntax that was so much uglier than anything in Jekyll so I immediately nope&#x27;d out and chose the second one I remembered &lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;getting-started&#x2F;overview&#x2F;#first-steps-with-zola&quot;&gt;quick overview&lt;&#x2F;a&gt; in the Zola docs was also super easy to follow. &lt;&#x2F;p&gt;
+&lt;!-- Quick disclaimer: I gutted most of the metadata out of the original files --&gt;
+&lt;h1 id=&quot;project-structure&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#project-structure&quot; aria-label=&quot;Anchor link for: project-structure&quot;&gt;Project Structure&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;p&gt;I&#x27;ll go over how I translated the structure of the Jekyll project over first before going over any substantial changes I made to the layout logic.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;html-templates&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#html-templates&quot; aria-label=&quot;Anchor link for: html-templates&quot;&gt;HTML Templates&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Jekyll: &lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#282a36;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;───&lt;&#x2F;span&gt;&lt;span&gt; index.html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;_includes&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; head.html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; header.html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; thumb.html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;_layouts&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; default.html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; page.html
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Zola: &lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#282a36;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;templates&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; default.html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; index.html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; macros.html &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt; macro::{head, header}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; page.html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; section.html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; shortcodes
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; thumb.html
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;In Jekyll, the &lt;code&gt;_layouts&lt;&#x2F;code&gt; directory contains the templates that wrap markdown content, which is slotted in with a &lt;code&gt;{{ content }}&lt;&#x2F;code&gt; tag. The &lt;code&gt;_includes&lt;&#x2F;code&gt; directory contains partial HTML components that can be mixed and matched by your layouts and included in markdown files. &lt;&#x2F;p&gt;
+&lt;p&gt;In Zola, every template lives in the &lt;code&gt;templates&lt;&#x2F;code&gt; directory. Partials that are meant to be included in other templates like &lt;code&gt;head&lt;&#x2F;code&gt; and &lt;code&gt;header&lt;&#x2F;code&gt; elements are recommended to be written as Tera macros which are imported and namespaced. Partials that are meant to be included primarily in markdown files are recommended to be written as shortcodes and placed in the &lt;code&gt;shortcodes&lt;&#x2F;code&gt; directory (which exposes their use to every markdown file automatically without the need to add an import statement). &lt;&#x2F;p&gt;
+&lt;p&gt;In the Jekyll project, &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;default.html&lt;&#x2F;code&gt; serves as the base template&lt;&#x2F;li&gt;
+&lt;li&gt;it slots in  &lt;code&gt;head.html&lt;&#x2F;code&gt; for metadata and  &lt;code&gt;header.html&lt;&#x2F;code&gt; for the navbar&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;{{ content }}&lt;&#x2F;code&gt; is slotted with the paginated list of blogposts from &lt;code&gt;index.html&lt;&#x2F;code&gt; or a single page of content from &lt;code&gt;page.html&lt;&#x2F;code&gt;. &lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;In the Zola project, &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;default.html&lt;&#x2F;code&gt; serves as the base template&lt;&#x2F;li&gt;
+&lt;li&gt;it slots in  &lt;code&gt;macro::head()&lt;&#x2F;code&gt; for metadata and  &lt;code&gt;macro::header()&lt;&#x2F;code&gt; for the navbar&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;{%block content%}{% endblock %}&lt;&#x2F;code&gt; is slotted with the paginated list of blogposts from &lt;code&gt;index.html&lt;&#x2F;code&gt; or a single page of content from &lt;code&gt;{page, section}.html&lt;&#x2F;code&gt;. &lt;code&gt;section.html&lt;&#x2F;code&gt; is only for the project listing - more on that later.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;sass&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#sass&quot; aria-label=&quot;Anchor link for: sass&quot;&gt;Sass&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Jekyll: &lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#282a36;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;_sass&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; skeleton
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span&gt;   ├── _loader.scss
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span&gt;   └── _vars.scss
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; vendor
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; normalize-scss &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt; git submodule
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; skeleton-sass &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt; git submodule
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;_assets&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; main.scss
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Zola: &lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#282a36;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;node_modules&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; normalize-scss
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; skeleton-sass-official
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;sass&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; _config.scss
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; _loader.scss
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; _vars.scss
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; skeleton.scss
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;In Jekyll, the &lt;code&gt;_sass&lt;&#x2F;code&gt; directory only contains sass partials which are imported by &lt;code&gt;main.scss&lt;&#x2F;code&gt; from the &lt;code&gt;assets&lt;&#x2F;code&gt; directory. &lt;&#x2F;p&gt;
+&lt;p&gt;Zola processes any files with the &lt;code&gt;sass&lt;&#x2F;code&gt; or &lt;code&gt;scss&lt;&#x2F;code&gt; extension in the &lt;code&gt;sass&lt;&#x2F;code&gt; directory and places the processed output into a &lt;code&gt;css&lt;&#x2F;code&gt; file with the same directory structure and base name into the &lt;code&gt;public&lt;&#x2F;code&gt; directory - the root of a built Zola project. &lt;&#x2F;p&gt;
+&lt;h2 id=&quot;assets&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#assets&quot; aria-label=&quot;Anchor link for: assets&quot;&gt;Assets&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I didn&#x27;t sweat this one too much - all the image uploads in the original project lived in an  &lt;code&gt;uploads&lt;&#x2F;code&gt; directory and static assets (logos, svgs, etc.) in an &lt;code&gt;assets&lt;&#x2F;code&gt; directory. &lt;&#x2F;p&gt;
+&lt;p&gt;Zola comes with something they call &amp;quot;Asset colocation&amp;quot; - All non-Markdown files you add in a page directory are copied alongside the generated page when the site is built, which allows a relative path to be used access them, so I eschewed the &lt;code&gt;uploads&lt;&#x2F;code&gt; directory altogether, anticipating that I won&#x27;t be reusing images in multiple blog posts too often. If I did want to, Zola&#x27;s &lt;code&gt;static&lt;&#x2F;code&gt; directory is intended for any kind of static file - all the files&#x2F;directories in this directory are be copied as-is to the output directory on build, so something like &lt;code&gt;static&#x2F;uploads&lt;&#x2F;code&gt; would work (I use &lt;code&gt;static&#x2F;assets&lt;&#x2F;code&gt; to hold the icons present on the navbar)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;posts&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#posts&quot; aria-label=&quot;Anchor link for: posts&quot;&gt;Posts&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I didn&#x27;t look at the way posts were routed&#x2F;organized in Jekyll before this but I might as well include it. I&#x27;m using &lt;code&gt;+++&lt;&#x2F;code&gt; to denote information that&#x27;s found in the front-matter (like the header) of each markdown file. &lt;&#x2F;p&gt;
+&lt;p&gt;Jekyll&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#282a36;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;───&lt;&#x2F;span&gt;&lt;span&gt; about.md
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;───&lt;&#x2F;span&gt;&lt;span&gt; projects.md
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;_posts&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; example-blogpost-name.md
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; example-blogpost-but-this-is-also-a-project.md +++ permalink=project&#x2F;somethingsomething
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;projects&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; example-project-name.md +++ permalink=project&#x2F;something
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Zola&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#282a36;color:#f8f8f2;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;content&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; blog&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span&gt;   ├── example-blogpost-name&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span&gt;   │   └── index.md
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span&gt;   └── _index.md +++ transparent=true
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span&gt; pages&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span&gt;   ├── about&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span&gt;   │   └── _index.md
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span&gt;   └── projects&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span&gt;       ├── example-project-name&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span&gt;       │   └── index.md
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span&gt;       └── _index.md
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span&gt; _index.md +++ paginate_by=5
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Without going into much detail, Zola has &amp;quot;pages&amp;quot; and &amp;quot;sections&amp;quot; organized in the &lt;code&gt;content&lt;&#x2F;code&gt; directory. Directories with a &lt;code&gt;_index.md&lt;&#x2F;code&gt; file are sections, and directories with a &lt;code&gt;index.md&lt;&#x2F;code&gt; file are pages. Sections can paginate the pages that are under them automatically, and can paginate the pages that are under their subsections if the subsection is &amp;quot;transparent&amp;quot;. You can paginate posts on the homepage by putting every post in its own transparent section, which I named &lt;code&gt;blog&lt;&#x2F;code&gt;, and every other page in an opaque section I named &lt;code&gt;pages&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;See &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;content&#x2F;overview&#x2F;&quot;&gt;this&lt;&#x2F;a&gt; for more details about section routing.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;what-s-different&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#what-s-different&quot; aria-label=&quot;Anchor link for: what-s-different&quot;&gt;What&#x27;s Different&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;no-active-tab-variable-in-frontmatter&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#no-active-tab-variable-in-frontmatter&quot; aria-label=&quot;Anchor link for: no-active-tab-variable-in-frontmatter&quot;&gt;No &amp;quot;active_tab&amp;quot; variable in frontmatter&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Every rendered website checks whether or not it&#x27;s a &amp;quot;page&amp;quot; or a &amp;quot;section&amp;quot; before rendering the navbar. If it&#x27;s a &lt;code&gt;page&lt;&#x2F;code&gt;, it sets the &lt;code&gt;active_tab&lt;&#x2F;code&gt; equal to the title of its parent section. If it&#x27;s a &lt;code&gt;section&lt;&#x2F;code&gt;, it sets the &lt;code&gt;active_tab&lt;&#x2F;code&gt; equal to its title.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#282a36;color:#f8f8f2;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span&gt; import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;quot;macros.html&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; as macros &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;...
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;div class&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;quot;two columns&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; id&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;quot;menu-column&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;% if&lt;&#x2F;span&gt;&lt;span&gt; page &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span&gt; set active_tab &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;get_section&lt;&#x2F;span&gt;&lt;span&gt;(path &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; page&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;ancestors &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span&gt; last) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;get&lt;&#x2F;span&gt;&lt;span&gt;(key&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;quot;title&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;% else %&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span&gt; set active_tab &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; section&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;title &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span&gt; endif &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{{&lt;&#x2F;span&gt;&lt;span&gt; macros:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;header&lt;&#x2F;span&gt;&lt;span&gt;(config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;config, active_tab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;active_tab) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;div&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And some other stuff too I&#x27;m so tired I&#x27;ll update this post later ok you get the gist I guess!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
